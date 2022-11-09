@@ -9,7 +9,7 @@
 #include <iomanip>
 #include <cmath>
 using namespace std;
-double S(const double x, const double eps, int &n, double &s);
+double S(const double x, const double eps, int &n, double &s, double xk);
 double A(const double a, const int n, double &s, double &b, double& R);
 int main()
 {
@@ -30,7 +30,7 @@ int main()
 	x = xp;
 	while (x <= xk)
 	{
-		s=S(x, eps, n, s);
+		s=S(x, eps, n, s, xk);
 		cout << "|" << setw(7) << setprecision(2) << x << " |"
 			<< setw(10) << setprecision(5) << log(x) << " |"
 			<< setw(10) << setprecision(5) << s << " |"
@@ -42,7 +42,7 @@ int main()
 	cout << "-------------------------------------------------" << endl;
 	return 0;
 }
-double S(const double x, const double eps, int &n, double &s)
+double S(const double x, const double eps, int &n, double &s, double xk)
 {
 	n = 0;
 	s = 0;
